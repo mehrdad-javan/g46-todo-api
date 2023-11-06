@@ -8,6 +8,7 @@ import java.util.Set;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 @Builder
 public class UserDTOForm {
   private String email;

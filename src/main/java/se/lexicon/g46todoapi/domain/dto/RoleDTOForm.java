@@ -7,7 +7,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-
+@ToString
 public class RoleDTOForm {
 
   private Long id;
