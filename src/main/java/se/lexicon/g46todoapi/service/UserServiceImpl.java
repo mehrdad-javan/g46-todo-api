@@ -87,6 +87,8 @@ public class UserServiceImpl implements UserService {
                             .build())
             .collect(Collectors.toSet());
 
+    // todo: call email api to send email...
+
     //& return the result
     return UserDTOView.builder()
             .email(savedUser.getEmail())
