@@ -28,4 +28,24 @@ public class Task {
   @JoinColumn(name = "person_id")
   private Person person;
 
+  public Task(String title, String description, LocalDate deadline, Person person) {
+    this.title = title;
+    this.description = description;
+    this.deadline = deadline;
+    this.person = person;
+  }
+
+  public Task(String title, String description, LocalDate deadline, boolean done, Person person) {
+    this.title = title;
+    this.description = description;
+    this.deadline = deadline;
+    this.done = done;
+    this.person = person;
+  }
+
+  public Task(String title, String description, LocalDate deadline) {
+    this.title = title;
+    this.description = description;
+    this.deadline = deadline;
+  }
 }

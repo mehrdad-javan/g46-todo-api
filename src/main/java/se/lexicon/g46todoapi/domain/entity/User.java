@@ -15,10 +15,10 @@ import java.util.Set;
 @Builder
 
 @Entity
+@Table(name = "users")
 public class User {
 
   @Id
-  @Column(updatable = false)
   private String email;
   @Column(nullable = false, length = 100)
   private String password;
