@@ -11,6 +11,8 @@ import java.util.Set;
 @ToString
 @Builder
 public class UserDTOForm {
+  // todo : add validation annotations if needed
+
   private String email;
   private String password;
   private Set<RoleDTOForm> roles;
