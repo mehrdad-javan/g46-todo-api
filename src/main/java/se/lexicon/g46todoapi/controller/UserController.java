@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
+@CrossOrigin(origins = "http://localhost:3000") // Replace with your frontend URL
 @RequestMapping("/api/v1/users")
 @RestController // RestController annotation is used to create RESTful web services
 public class UserController {

@@ -12,6 +12,7 @@ import se.lexicon.g46todoapi.service.PersonService;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:3000") // Replace with your frontend URL
 @RestController
 @RequestMapping("/api/v1/persons")
 @Validated
