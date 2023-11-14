@@ -2,6 +2,7 @@ package se.lexicon.g46todoapi.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import se.lexicon.g46todoapi.domain.dto.RoleDTOView;
 import se.lexicon.g46todoapi.domain.dto.UserDTOForm;
 import se.lexicon.g46todoapi.domain.dto.UserDTOView;
@@ -41,6 +42,7 @@ public class UserServiceImpl implements UserService {
 
 
   @Override
+  @Transactional
   public UserDTOView register(UserDTOForm userDTOForm) {
     // Check params
     if (userDTOForm == null) throw new IllegalArgumentException("user form is null.");
@@ -85,6 +87,8 @@ public class UserServiceImpl implements UserService {
                             .build())
             .collect(Collectors.toSet());
 
+    // todo: call email api to send email...
+
     //& return the result
     return UserDTOView.builder()
             .email(savedUser.getEmail())
@@ -112,12 +116,14 @@ public class UserServiceImpl implements UserService {
   }
 
   @Override
+  @Transactional
   public void disableByEmail(String email) {
     isEmailTaken(email);
     userRepository.updateExpiredByEmail(email, true);
   }
 
   @Override
+  @Transactional
   public void enableByEmail(String email) {
     isEmailTaken(email);
     userRepository.updateExpiredByEmail(email, false);
